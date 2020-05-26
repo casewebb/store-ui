@@ -26,4 +26,8 @@ export class ProductCardComponent implements OnInit {
     return formatter.format(price);
   }
 
+  goToProductPage() {
+    window.open(this.product.product_link, "_blank")
+  }
+
 }

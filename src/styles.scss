@@ -5011,8 +5011,11 @@
    -webkit-box-flex: 1;
        -ms-flex: 1 1 auto;
            flex: 1 1 auto;
-   min-height: 1px;
+   min-height: 93px;
+   height: 93px;
    padding: 1.25rem;
+   padding-top: .25rem;
+   vertical-align: text-top;
  }
  
  .card-title {
@@ -5021,10 +5024,6 @@
  
  .card-subtitle {
    margin-top: -0.375rem;
-   margin-bottom: 0;
- }
- 
- .card-text:last-child {
    margin-bottom: 0;
  }
  
