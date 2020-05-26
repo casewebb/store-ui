@@ -1,0 +1,17 @@
+.products-grid {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: auto;
+    max-width: 80%;
+  }
+  
+  .products-item {
+    box-sizing: border-box;
+    flex-basis: 20%;
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+    margin: auto;
+  }
