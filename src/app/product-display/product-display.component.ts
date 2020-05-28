@@ -14,10 +14,10 @@ export class ProductDisplayComponent implements OnInit {
   constructor(private productService: ProductService) { }
 
   ngOnInit(): void {
-      this.productService.getProducts().subscribe(products => {
-        this.products = products;
-        this.products.sort((a,b) => a.created_date > b.created_date ? -1 : 1)
-      });
+    this.productService.getProducts().subscribe(products => {
+      this.products = products;
+      this.products.sort((a, b) => a.created_date > b.created_date ? -1 : 1)
+    });
   }
 
 }
