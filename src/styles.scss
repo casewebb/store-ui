@@ -63,13 +63,14 @@
  
  body {
    margin: 0;
+   margin-top: 100px;
    font-family: "Nunito Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
    font-size: 0.875rem;
    font-weight: 400;
    line-height: 1.5;
    color: #55595c;
    text-align: left;
-   background-color: #fff;
+   background-color: rgb(38, 37, 39);
  }
  
  [tabindex="-1"]:focus:not(:focus-visible) {
@@ -233,7 +234,7 @@
  }
  
  button {
-   border-radius: 0;
+   border-radius: 1px;
  }
  
  button:focus {
@@ -2742,7 +2743,7 @@
    padding: 0.75rem 1.5rem;
    font-size: 0.875rem;
    line-height: 1.5rem;
-   border-radius: 0;
+   border-radius: 1px;
    -webkit-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
@@ -2861,7 +2862,7 @@
  .btn-success {
    color: #fff;
    background-color: #4BBF73;
-   border-color: #4BBF73;
+   border: 1px solid #4BBF73;
  }
  
  .btn-success:hover {
@@ -4443,7 +4444,6 @@
    -ms-flex-wrap: wrap;
        flex-wrap: wrap;
    padding-left: 0;
-   margin-bottom: 0;
    list-style: none;
  }
  
@@ -4746,6 +4746,10 @@
      -webkit-box-pack: start;
          -ms-flex-pack: start;
              justify-content: flex-start;
+      position: fixed;
+      width: 100%;
+      z-index: 1;
+      top: 0;
    }
    .navbar-expand-lg .navbar-nav {
      -webkit-box-orient: horizontal;
@@ -4986,7 +4990,6 @@
    background-clip: border-box;
    height: 500px;
    max-height: 500px;
-   border: 1px solid rgba(0, 0, 0, 0.125);
  }
  
  .card > hr {
@@ -10524,6 +10527,9 @@
    }
    .navbar {
      display: none;
+     overflow: hidden;
+     position: fixed;
+     top: 0;
    }
    .badge {
      border: 1px solid #000;

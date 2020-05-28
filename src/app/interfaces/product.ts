@@ -8,7 +8,6 @@ export interface Product {
     product_image_alt: string
     product_link: string
     product_price: number
-    product_gender: number
     product_categories?: Category[]
     created_date: Date
     updated_date?: Date

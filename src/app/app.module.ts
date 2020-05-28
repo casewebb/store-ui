@@ -8,6 +8,8 @@ import { HeaderComponent } from './header/header.component';
 import { ProductCardComponent } from './product-card/product-card.component';
 import { ProductDisplayComponent } from './product-display/product-display.component';
 import { HomeComponent } from './home/home.component';
+import { AboutComponent } from './about/about.component';
+import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +18,8 @@ import { HomeComponent } from './home/home.component';
     ProductCardComponent,
     ProductDisplayComponent,
     HomeComponent,
+    AboutComponent,
+    AdminPanelComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
