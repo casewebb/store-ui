@@ -11,7 +11,8 @@ export class ProductCardComponent implements OnInit {
   constructor() { }
 
   @Input() product: Product;
-  productPrice: string;
+  @Input() productPrice: string;
+  
   buttonText: string;
 
   ngOnInit(): void {
@@ -34,10 +35,10 @@ export class ProductCardComponent implements OnInit {
 
   getRandomBuyButtonText() {
     let buttonTexts = ['Quick Scope it', 'Throw a Pokeball at it', 'Buy it', 'Use your ultimate on it', 'Rage at it',
-  'Sing the He Man Song', 'Ask it to be your Runescape GF', 'Hey! Listen!', 'Falcon Punch it', 'Heal it',
-'Take it out for dinner', 'Add it to your Steam Library and never play it', 'Camp in a corner with it', 'Save it from a castle',
-'Shoot it with a lazer', 'Add it to your friends list and then never talk to it', 'Let it get in the pool, then remove the ladder',
-'Cook it some pizza rolls', 'Invite it to your guild', 'Tell it how you really feel, in ALL chat', 'Sneak Baron', 'Defeat the Elite Four']
+      'Sing the He Man Song', 'Ask it to be your Runescape GF', 'Hey! Listen!', 'Falcon Punch it', 'Heal it',
+      'Take it out for dinner', 'Add it to your Steam Library and never play it', 'Camp in a corner with it', 'Save it from a castle',
+      'Shoot it with a lazer', 'Add it to your friends list and then never talk to it', 'Let it get in the pool, then remove the ladder',
+      'Cook it some pizza rolls', 'Invite it to your guild', 'Tell it how you really feel, in ALL chat', 'Sneak Baron', 'Defeat the Elite Four']
     this.buttonText = buttonTexts[Math.floor(Math.random() * buttonTexts.length)];
   }
 
