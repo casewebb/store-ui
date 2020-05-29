@@ -1,34 +1,52 @@
-<div class="col-lg-6">
-    <form>
-        <fieldset>
-            <div class="form-group">
-                <label for="productTitle">Product Title</label>
-                <input class="form-control" id="productTitle" aria-describedby="productTitle"
-                    placeholder="Enter Title">
-                <small id="titleTip" class="form-text text-muted">30 Characters Max</small>
-            </div>
-            <div class="form-group">
-                <label for="productDescription">Product Description</label>
-                <textarea rows=3 class="form-control" id="productDescription" aria-describedby="productDescription"
-                    placeholder="Enter Description"></textarea>
-                <small id="descriptionTip" class="form-text text-muted">190 Characters Max</small>
-            </div>
+<div class="row">
+    <div class="col-lg-4">
+        <form [formGroup]="form" (ngSubmit)="submit()">
+            <fieldset>
+                <div class="form-group">
+                    <label for="productTitle">Product Title</label>
+                    <input maxlength="30" class="form-control" id="productTitle" aria-describedby="productTitle"
+                        placeholder="Enter Title" formControlName="productTitle">
+                    <small id="titleTip" class="form-text text-muted">30 Characters Max</small>
+                </div>
+                <div class="form-group">
+                    <label for="productDescription">Product Description</label>
+                    <textarea maxlength="190" rows=3 class="form-control" id="productDescription"
+                        aria-describedby="productDescription" placeholder="Enter Description"
+                        formControlName="productDescription"></textarea>
+                    <small id="descriptionTip" class="form-text text-muted">190 Characters Max</small>
+                </div>
 
-            <div class="form-group">
-                <label for="productLink">Product Purchase Link</label>
-                <input class="form-control" id="productLink" aria-describedby="productLink"
-                    placeholder="Enter URL">
-                <small id="linkTip" class="form-text text-muted">Link to the real store page of the product (Amazon, Etsy, etc)</small>
-            </div>
+                <div class="form-group">
+                    <label for="productLink">Product Purchase Link</label>
+                    <input class="form-control" id="productLink" aria-describedby="productLink" placeholder="Enter URL"
+                        formControlName="productLink">
+                    <small id="linkTip" class="form-text text-muted">Link to the real store page of the product (Amazon,
+                        Etsy, etc)</small>
+                </div>
 
+                <div class="form-group">
+                    <label for="productPrice">Product Price</label>
+                    <input class="form-control" id="productPrice" aria-describedby="productPrice"
+                        placeholder="Enter Price" formControlName="productPrice">
+                    <small id="priceTip" class="form-text text-muted">Format as 10000.10 (No commas or $)</small>
+                </div>
 
-            <div class="form-group">
-                <label for="imageUrl">Image Url</label>
-                <input class="form-control" id="imageUrl" aria-describedby="imageUrl"
-                    placeholder="Enter Image Url">
-                <small id="imageTip" class="form-text text-muted">URL To Product Image</small>
-            </div>
-            
-        </fieldset>
-    </form>
+                <div class="form-group">
+                    <label for="imageUrl">Image Url</label>
+                    <input class="form-control" id="imageUrl" aria-describedby="imageUrl" placeholder="Enter Image Url"
+                        formControlName="imageUrl">
+                    <small id="imageTip" class="form-text text-muted">URL To Product Image</small>
+                </div>
+            </fieldset>
+
+            <button type="submit" class="btn btn-warning">Submit</button>
+
+        </form>
+    </div>
+
+    <ng-container>
+        <div class="col-lg-4 offset-lg-1">
+            <app-product-card *ngIf="previewReady" class="products-item" [product]='product'></app-product-card>
+        </div>
+    </ng-container>
 </div>

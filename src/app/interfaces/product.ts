@@ -1,6 +1,6 @@
 import { Category } from './category';
 
-export interface Product {
+export class Product {
     product_id: number;
     product_title: string;
     product_description: string;

@@ -10,6 +10,7 @@ import { ProductDisplayComponent } from './product-display/product-display.compo
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { AdminPanelComponent } from './admin-panel/admin-panel.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,9 @@ import { AdminPanelComponent } from './admin-panel/admin-panel.component';
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
