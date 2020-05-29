@@ -8,7 +8,8 @@ import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'about', component: AboutComponent },
-  { path: 'admin_secure_01160405', component: AdminPanelComponent }
+  { path: 'admin_secure_01160405', component: AdminPanelComponent },
+  { path: '**', component: HomeComponent }
 ];
 
 @NgModule({
