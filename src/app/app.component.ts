@@ -8,6 +8,6 @@ import { Title } from '@angular/platform-browser';
 })
 export class AppComponent {
   public constructor(private titleService: Title) {
-    this.titleService.setTitle('Things Gamers Buy');
+    this.titleService.setTitle('Cringy Gifts');
   }
 }
