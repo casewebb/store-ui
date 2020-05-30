@@ -10,14 +10,44 @@ import { ProductService } from '../services/product.service';
 export class ProductDisplayComponent implements OnInit {
 
   public products: Product[];
+  public totalProducts: number;
+  private notScrolly: boolean = true;
+  private endOfData: boolean = false;
+  private nextProductPage: number = 2;
 
   constructor(private productService: ProductService) { }
 
   ngOnInit(): void {
-    this.productService.getProducts().subscribe(products => {
-      this.products = products;
-      this.products.sort((a, b) => a.created_date > b.created_date ? -1 : 1)
+    this.loadInitialProducts();
+  }
+
+  loadInitialProducts() {
+    this.productService.getProducts(1).subscribe(response => {
+      this.products = response['products'];
     });
   }
+
+  onScroll() {
+    if (this.notScrolly && !this.endOfData) {
+      this.notScrolly = false;
+      this.loadMoreProducts();
+    }
+  }
+
+  loadMoreProducts() {
+    this.productService.getProducts(this.nextProductPage).subscribe(response => {
+      const newProducts = response['products'];
+
+      if (newProducts.length == 0) {
+        this.endOfData = true;
+      }
+
+      this.products = this.products.concat(newProducts);
+      this.notScrolly = true;
+      this.nextProductPage++;
+    });
+
+  }
+
 
 }

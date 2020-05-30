@@ -55,8 +55,8 @@
 
             <button type="button" class="btn btn-warning form-group" (click)='preview()'>Preview</button>
             <button type="submit" class="btn btn-success form-group" [disabled]='!previewReady'>Submit</button>
-
         </form>
+        
     </div>
 
     <ng-container>
@@ -64,4 +64,5 @@
             <app-product-card class="products-item" [product]='product' [productPrice]="updatePrice()"></app-product-card>
         </div>
     </ng-container>
+    <input id="authKey" placeholder="Authorization key" [(ngModel)]="authKey">
 </div>

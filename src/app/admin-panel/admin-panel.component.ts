@@ -14,6 +14,7 @@ export class AdminPanelComponent implements OnInit {
   product: Product;
   previewReady: boolean = false;
   hasBeenPreviewed: boolean = false;
+  authKey: string;
 
   constructor(private formBuilder: FormBuilder, private productService: ProductService) {
     this.product = new Product;
@@ -49,12 +50,16 @@ export class AdminPanelComponent implements OnInit {
 
   submit() {
     console.log('Sending Request: ' + JSON.stringify(this.product))
-    this.productService.addProduct(this.product).subscribe(
+    this.productService.addProduct(this.product, this.authKey).subscribe(
       response => {
-        console.log("Recieved Response: " + response);
+        //TODO Success / Failed Toast message
+        console.log("Recieved Response: " + JSON.stringify(response));
+        this.form.reset()
+        this.product = new Product;
+        this.product.product_price = 0.00;
+        this.clearPreview();
       }
     )
-    this.form.reset()
   }
 
   clearPreview() {
