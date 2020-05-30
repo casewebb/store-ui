@@ -14,10 +14,12 @@ export class ProductCardComponent implements OnInit {
   @Input() productPrice: string;
   
   buttonText: string;
+  affTag:string;
 
   ngOnInit(): void {
     this.productPrice = this.getFormattedPrice(this.product.product_price)
     this.getRandomBuyButtonText()
+    this.affTag = this.getAffiliateLink()
   }
 
   getFormattedPrice(price: number) {
@@ -30,7 +32,7 @@ export class ProductCardComponent implements OnInit {
   }
 
   goToProductPage() {
-    window.open(this.product.product_link, "_blank")
+    window.open(this.product.product_link + this.affTag, "_blank")
   }
 
   getRandomBuyButtonText() {
@@ -40,6 +42,17 @@ export class ProductCardComponent implements OnInit {
       'Shoot it with a lazer', 'Add it to your friends list and then never talk to it', 'Let it get in the pool, then remove the ladder',
       'Cook it some pizza rolls', 'Invite it to your guild', 'Tell it how you really feel, in ALL chat', 'Sneak Baron', 'Defeat the Elite Four']
     this.buttonText = buttonTexts[Math.floor(Math.random() * buttonTexts.length)];
+  }
+
+  getAffiliateLink() {
+    if (!(this.product && this.product.product_link)) {
+      return '';
+    }
+    if (this.product.product_link.includes('?')) {
+      return '&tag=WHATTHEGifts';
+    } else {
+      return '?tag=WHATTHEGifts';
+    }
   }
 
 }
