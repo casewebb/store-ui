@@ -1,3 +1,11 @@
+<form [formGroup]="searchForm">
+    <input class="form-control" id="searchTerm" aria-describedby="searchTerm" placeholder="Search"
+        formControlName="searchTerm">
+    <input class="form-control" id="minPrice" aria-describedby="minPrice" placeholder="Min Price"
+        formControlName="minPrice">
+    <input class="form-control" id="maxPrice" aria-describedby="maxPrice" placeholder="Max Price"
+        formControlName="maxPrice">
+</form>
 <div class="col-xs-12">
     <div class="products-grid" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="50"
         (scrolled)="onScroll()">
