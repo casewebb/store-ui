@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpErrorResponse, HttpParams } from '@angular/common/http';
 import { Observable, of, throwError } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import { Product } from '../interfaces/product'
@@ -12,7 +12,26 @@ export class ProductService {
   constructor(private http: HttpClient) { }
 
   getProducts(page: number): Observable<Product[]> {
-    return this.http.get<Product[]>(`http://127.0.0.1:5000/api/v1/product/all/${page}`);
+    return this.http.get<Product[]>(`http://127.0.0.1:5000/api/v1/product/all/${page}`)
+      .pipe(catchError(this.errorHandler));
+  }
+
+  getFilteredProducts(page: number, searchTerm: string, maxPrice: string, minPrice: string): Observable<any> {
+    let params = new HttpParams();
+    params = params.append('page', page.toString());
+
+    if (searchTerm && !(searchTerm == '')) {
+      params = params.append('searchTerm', searchTerm);
+    }
+    if (maxPrice && !(maxPrice == '')) {
+      params = params.append('maxPrice', maxPrice);
+    }
+    if (minPrice && !(minPrice == '')) {
+      params = params.append('minPrice', minPrice);
+    }
+
+    return this.http.get<any>(`http://127.0.0.1:5000/api/v1/product/filter`, { params: params })
+      .pipe(catchError(this.errorHandler));
   }
 
   addProduct(product: Product, auth: string): Observable<any> {

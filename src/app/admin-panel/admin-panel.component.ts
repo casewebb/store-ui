@@ -49,7 +49,6 @@ export class AdminPanelComponent implements OnInit {
   }
 
   submit() {
-    console.log('Sending Request: ' + JSON.stringify(this.product))
     this.productService.addProduct(this.product, this.authKey).subscribe(
       response => {
         //TODO Success / Failed Toast message

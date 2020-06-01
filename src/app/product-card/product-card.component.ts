@@ -14,12 +14,11 @@ export class ProductCardComponent implements OnInit {
   @Input() productPrice: string;
   
   buttonText: string;
-  affTag:string;
 
   ngOnInit(): void {
-    this.productPrice = this.getFormattedPrice(this.product.product_price)
-    this.getRandomBuyButtonText()
-    this.affTag = this.getAffiliateLink()
+    this.productPrice = this.getFormattedPrice(this.product.product_price);
+    this.getRandomBuyButtonText();
+    this.setAffiliateLink();
   }
 
   getFormattedPrice(price: number) {
@@ -32,27 +31,21 @@ export class ProductCardComponent implements OnInit {
   }
 
   goToProductPage() {
-    window.open(this.product.product_link + this.affTag, "_blank")
+    window.open(this.product.product_link, "_blank")
   }
 
   getRandomBuyButtonText() {
-    let buttonTexts = ['Quick Scope it', 'Throw a Pokeball at it', 'Buy it', 'Use your ultimate on it', 'Rage at it',
-      'Sing the He Man Song', 'Ask it to be your Runescape GF', 'Hey! Listen!', 'Falcon Punch it', 'Heal it',
-      'Take it out for dinner', 'Add it to your Steam Library and never play it', 'Camp in a corner with it', 'Save it from a castle',
-      'Shoot it with a lazer', 'Add it to your friends list and then never talk to it', 'Let it get in the pool, then remove the ladder',
-      'Cook it some pizza rolls', 'Invite it to your guild', 'Tell it how you really feel, in ALL chat', 'Sneak Baron', 'Defeat the Elite Four']
+    let buttonTexts = ['Walk in on mom in the shower, and stick around..', 'Shower with your dad, in your 20\'s',
+  'Play chicken with your sister', 'Be the best big brother..', 'Become a SIMP', 'Break both your arms']
     this.buttonText = buttonTexts[Math.floor(Math.random() * buttonTexts.length)];
   }
 
-  getAffiliateLink() {
-    if (!(this.product && this.product.product_link)) {
-      return '';
+  setAffiliateLink() {
+    if (!(this.product && this.product.product_link) || !this.product.product_link.toLowerCase().includes('amazon')) {
+      return;
     }
-    if (this.product.product_link.includes('?')) {
-      return '&tag=WHATTHEGifts';
-    } else {
-      return '?tag=WHATTHEGifts';
-    }
+    var link = new URL(this.product.product_link);
+    link.searchParams.set('tag', 'WHATTHEGifts');
+    this.product.product_link = link.toString();
   }
-
 }
