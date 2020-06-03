@@ -17,3 +17,31 @@
     padding: 10px;
     margin: 10px;
   }
+
+  .centered {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%)
+  }
+
+  .round {
+    border-radius: 10px;
+  }
+
+  .filter-form {
+    justify-content: center;
+    position: relative;
+    display: inline-block;
+  }
+
+  .form-label {
+    float: left;
+    margin-top: 1rem;
+    color: white;
+  }
+
+  .form-control {
+    float: left;
+    width: 10rem;
+    margin: 5px;
+  }
