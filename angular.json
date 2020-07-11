@@ -170,6 +170,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "store-ui"
+    }
+  },
+  "defaultProject": "store-ui",
+  "cli": {
+    "analytics": "2ea12f49-f12e-454a-8704-6cdbf215431f"
+  }
 }

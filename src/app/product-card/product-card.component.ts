@@ -12,7 +12,7 @@ export class ProductCardComponent implements OnInit {
 
   @Input() product: Product;
   @Input() productPrice: string;
-  
+
   buttonText: string;
 
   ngOnInit(): void {
@@ -36,8 +36,9 @@ export class ProductCardComponent implements OnInit {
 
   getRandomBuyButtonText() {
     let buttonTexts = ['Walk in on mom in the shower, and stick around..', 'Shower with your dad, in your 20\'s',
-  'Play chicken with your sister', 'Be the best big brother..', 'Become a SIMP', 'Break both your arms']
-    this.buttonText = buttonTexts[Math.floor(Math.random() * buttonTexts.length)];
+      'Play chicken with your sister', 'Be the best big brother..', 'Become a SIMP', 'Break both your arms']
+    this.buttonText = "Buy now!"
+      //this.buttonText = buttonTexts[Math.floor(Math.random() * buttonTexts.length)];
   }
 
   setAffiliateLink() {
