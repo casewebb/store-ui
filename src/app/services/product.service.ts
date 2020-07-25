@@ -4,15 +4,17 @@ import { Observable, of, throwError } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import { Product } from '../interfaces/product'
 
+//let url = "198.100.45.45";
+let url = "127.0.0.1:5000";
+
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
-
   constructor(private http: HttpClient) { }
 
   getProducts(page: number): Observable<Product[]> {
-    return this.http.get<Product[]>(`http://127.0.0.1:5000/api/v1/product/all/${page}`)
+    return this.http.get<Product[]>(`http://${url}/api/v1/product/all/${page}`)
       .pipe(catchError(this.errorHandler));
   }
 
@@ -30,7 +32,7 @@ export class ProductService {
       params = params.append('minPrice', minPrice);
     }
 
-    return this.http.get<any>(`http://127.0.0.1:5000/api/v1/product/filter`, { params: params })
+    return this.http.get<any>(`http://${url}/api/v1/product/filter`, { params: params })
       .pipe(catchError(this.errorHandler));
   }
 
@@ -42,7 +44,7 @@ export class ProductService {
     const requestOptions = {
       headers: new HttpHeaders(headerDict),
     };
-    return this.http.post<Product>(`http://127.0.0.1:5000/api/v1/product/create`, product, requestOptions)
+    return this.http.post<Product>(`http://${url}/api/v1/product/create`, product, requestOptions)
       .pipe(catchError(this.errorHandler));
   }
 

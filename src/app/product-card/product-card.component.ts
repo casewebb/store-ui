@@ -46,7 +46,7 @@ export class ProductCardComponent implements OnInit {
       return;
     }
     var link = new URL(this.product.product_link);
-    link.searchParams.set('tag', 'WHATTHEGifts');
+    link.searchParams.set('tag', 'ITSAJOKE_GIFTS');
     this.product.product_link = link.toString();
   }
 }
