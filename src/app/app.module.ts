@@ -9,7 +9,6 @@ import { ProductCardComponent } from './product-card/product-card.component';
 import { ProductDisplayComponent } from './product-display/product-display.component';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
-import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll' 
 
@@ -21,7 +20,6 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll'
     ProductDisplayComponent,
     HomeComponent,
     AboutComponent,
-    AdminPanelComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
