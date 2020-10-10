@@ -13,11 +13,10 @@ export class ProductCardComponent implements OnInit {
   @Input() product: Product;
   @Input() productPrice: string;
 
-  buttonText: string;
+  buttonText: string = "Buy now!";
 
   ngOnInit(): void {
     this.productPrice = this.getFormattedPrice(this.product.product_price);
-    this.getRandomBuyButtonText();
     this.setAffiliateLink();
   }
 
@@ -33,20 +32,14 @@ export class ProductCardComponent implements OnInit {
   goToProductPage() {
     window.open(this.product.product_link, "_blank")
   }
-
-  getRandomBuyButtonText() {
-    let buttonTexts = ['Walk in on mom in the shower, and stick around..', 'Shower with your dad, in your 20\'s',
-      'Play chicken with your sister', 'Be the best big brother..', 'Become a SIMP', 'Break both your arms']
-    this.buttonText = "Buy now!"
-      //this.buttonText = buttonTexts[Math.floor(Math.random() * buttonTexts.length)];
-  }
-
+  
   setAffiliateLink() {
     if (!(this.product && this.product.product_link) || !this.product.product_link.toLowerCase().includes('amazon')) {
       return;
     }
-    var link = new URL(this.product.product_link);
+    var link = new URL(this.product.product_link.split("?")[0]);
     link.searchParams.set('tag', 'ITSAJOKE_GIFTS');
+    let params = new URLSearchParams(link.searchParams);
     this.product.product_link = link.toString();
   }
 }
