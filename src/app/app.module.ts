@@ -10,7 +10,8 @@ import { ProductDisplayComponent } from './product-display/product-display.compo
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { InfiniteScrollModule } from 'ngx-infinite-scroll' 
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { FooterComponent } from './footer/footer.component' 
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll'
     ProductDisplayComponent,
     HomeComponent,
     AboutComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
